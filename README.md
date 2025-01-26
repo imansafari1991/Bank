@@ -19,7 +19,7 @@ The Bank Application allows users to:
 This application demonstrates a scalable architecture and best practices for building robust APIs.
 
 ## Technologies
-- **.NET 7**: Backend framework.
+- **.NET 8**: Backend framework.
 - **Entity Framework Core**: Database ORM.
 - **xUnit**: Unit testing framework.
 - **FluentAssertions**: For more readable test assertions.
@@ -48,7 +48,7 @@ This application demonstrates a scalable architecture and best practices for bui
 
 ### Prerequisites
 Ensure you have the following installed:
-- [.NET SDK 7.0](https://dotnet.microsoft.com/download/dotnet/7.0)
+- [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [SQLite](https://sqlite.org/download.html)
 
 ### Steps to Run Locally
