@@ -1,8 +1,9 @@
+using Bank.Persistence;
 using Bank.Persistence.ServiceConfiguration;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Bank.Persistence.Tests.Integration.ServiceRegistration;
+namespace Bank.Tests.Integration.Persistence.ServiceRegistration;
 
 public class ServiceCollectionExtensionsTest
 {

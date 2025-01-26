@@ -5,22 +5,27 @@ namespace Bank.Domain.Entities;
 public class BankAccount
 {
     public int Id { get; set; }
-    public decimal Balance { get;private set; }
-    public List<Transaction> Transactions { get; set; }
+    public decimal Balance { get; private set; }
+    public List<Transaction> Transactions { get; private init; }
 
-    public BankAccount(decimal balance)
+
+    private BankAccount()
     {
-        Balance = balance;
-        Transactions =
-        [
-            new Transaction(balance)
-        ];
+    }
+
+    public static BankAccount CreateAccount(decimal initialBalance)
+    {
+        return new BankAccount()
+        {
+            Balance = initialBalance,
+            Transactions = [Transaction.CreateCredit(initialBalance)]
+        };
     }
 
     public void Deposit(decimal depositAmount)
     {
         Balance += depositAmount;
-        Transactions.Add(new Transaction(depositAmount));
+        AddCreditTransaction(depositAmount);
     }
 
     public void Withdraw(decimal withdrawalAmount)
@@ -36,6 +41,16 @@ public class BankAccount
         }
 
         Balance -= withdrawalAmount;
-        Transactions.Add(new Transaction(withdrawalAmount));
+        AddDebitTransaction(withdrawalAmount);
+    }
+
+    private void AddDebitTransaction(decimal withdrawalAmount)
+    {
+        Transactions.Add(Transaction.CreateDebit(withdrawalAmount));
+    }
+
+    private void AddCreditTransaction(decimal depositAmount)
+    {
+        Transactions.Add(Transaction.CreateCredit(depositAmount));
     }
 }

@@ -3,11 +3,8 @@ using System.Text;
 using System.Text.Json;
 using Bank.Business.DTOs.BankAccount;
 using Microsoft.AspNetCore.Mvc.Testing;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-
-
-namespace Bank.Integration.Test.Controllers;
+namespace Bank.Tests.Integration.API.Controllers;
 
 public class BankAccountControllerTests : IAsyncDisposable
 {
@@ -45,4 +42,5 @@ public class BankAccountControllerTests : IAsyncDisposable
         // Assert
         Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
     }
+    
 }

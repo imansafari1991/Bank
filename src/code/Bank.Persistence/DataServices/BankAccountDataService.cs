@@ -17,10 +17,11 @@ public class BankAccountDataService : IBankAccountDataService
         return await _context.BankAccounts.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task AddAsync(BankAccount account)
+    public async Task<BankAccount> AddAsync(BankAccount account)
     {
         _context.Add(account);
         await _context.SaveChangesAsync();
+        return account;
     }
 
     public async Task UpdateAsync(BankAccount account)

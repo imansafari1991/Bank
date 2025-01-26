@@ -1,7 +1,7 @@
 using Bank.Domain.Constants;
 using FluentAssertions;
 
-namespace Bank.Domain.Tests.Unit.BankAccount;
+namespace Bank.Tests.Unit.Domain.BankAccountTests;
 
 public class FailureBankAccountTests
 {
@@ -10,7 +10,7 @@ public class FailureBankAccountTests
     {
         //Arrange
         var initialBalance = 100m;
-        var account = new Entities.BankAccount(initialBalance);
+        var account = Bank.Domain.Entities.BankAccount.CreateAccount(initialBalance);
         var withdrawalAmount = 150m;
         //Act
         Action act = () => account.Withdraw(withdrawalAmount);
@@ -22,7 +22,7 @@ public class FailureBankAccountTests
     public void Should_ThrowException_When_WithdrawingNegativeAmount()
     {
         // Arrange
-        var account = new Entities.BankAccount(200m);
+        var account = Bank.Domain.Entities.BankAccount.CreateAccount(200m);
 
         // Act
         Action act = () => account.Withdraw(-10m);

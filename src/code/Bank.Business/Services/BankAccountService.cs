@@ -16,7 +16,7 @@ public class BankAccountService
 
     public async Task CreateBankAccount(CreateBankAccountDto dto)
     {
-        var account = new BankAccount(dto.InitialBalance);
+        var account =BankAccount.CreateAccount(dto.InitialBalance);
 
         await _bankAccountDataService.AddAsync(account);
     }
