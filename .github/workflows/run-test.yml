@@ -37,4 +37,10 @@ jobs:
         with:
           name: test-results
           path: '**/test_results.trx'
+      - name: Annotate Failures
+        uses: EnricoMi/action-dotnet-test-report@v3
+        with:
+          dotnet-test-arguments: --logger "trx;LogFileName=test_results.trx"
+          annotate: true
+          check-failures: true
       
