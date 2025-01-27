@@ -37,7 +37,7 @@ public class FailureBankAccountTests
         // Assert
         //Fluent Assertion
         act.Should().Throw<ArgumentException>()
-            .WithMessage(BankAccountConstants.InvalidWithdrawRequest);
+            .WithMessage(BankAccountConstants.InsufficientFunds);
         //Shouldly
         act.ShouldThrow<ArgumentException>()
             .Message.ShouldBe(BankAccountConstants.InvalidWithdrawRequest);
