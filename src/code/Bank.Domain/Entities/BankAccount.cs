@@ -4,7 +4,7 @@ namespace Bank.Domain.Entities;
 
 public class BankAccount
 {
-    public int Id { get; set; }
+    public int Id { get; init; }
     public decimal Balance { get; private set; }
     public List<Transaction> Transactions { get; private init; }
 

@@ -19,7 +19,8 @@ namespace Bank.Tests.Unit.Business.BankAccountServiceTests
         {
             //Arrange
             _bankAccountDataService = Substitute.For<IBankAccountDataService>();
-            _bankAccountDataService.GetByIdAsync(1, default).Returns(BankAccount.CreateAccount(InitialBalance));
+            _bankAccountDataService.GetByIdAsync(1, default)
+                .Returns(BankAccount.CreateAccount(InitialBalance));
 
             _sut = new BankAccountService(_bankAccountDataService);
         }
